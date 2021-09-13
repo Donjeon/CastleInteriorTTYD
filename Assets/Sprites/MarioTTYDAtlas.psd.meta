@@ -1,0 +1,500 @@
+fileFormatVersion: 2
+guid: 64dd66a0ef42d0c4e8b2467c76e0e562
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6611082233186337051
+    second: MarioTTYDAtlas_0
+  - first:
+      213: 8375905189602283320
+    second: MarioTTYDAtlas_1
+  - first:
+      213: 5785474735257871549
+    second: MarioTTYDAtlas_2
+  - first:
+      213: -3540165290906034159
+    second: MarioTTYDAtlas_3
+  - first:
+      213: -1438500260854678362
+    second: MarioTTYDAtlas_4
+  - first:
+      213: 7712925857782258292
+    second: MarioTTYDAtlas_5
+  - first:
+      213: 641502432143376774
+    second: MarioTTYDAtlas_6
+  - first:
+      213: -1447257130138527509
+    second: MarioTTYDAtlas_7
+  - first:
+      213: -590705884012613548
+    second: MarioTTYDAtlas_8
+  - first:
+      213: 7888017342617495693
+    second: MarioTTYDAtlas_9
+  - first:
+      213: 6356690733118449271
+    second: MarioTTYDAtlas_10
+  - first:
+      213: -6957661265737449216
+    second: MarioTTYDAtlas_11
+  - first:
+      213: 1158286004827966929
+    second: MarioTTYDAtlas_12
+  - first:
+      213: -1745988621969902067
+    second: MarioTTYDAtlas_13
+  - first:
+      213: -5620281842743987106
+    second: MarioTTYDAtlas_14
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 2
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 392
+        width: 98
+        height: 88
+      alignment: 9
+      pivot: {x: 0.52007896, y: 0.022975229}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ee38066cb7b044a0800000000000000
+      internalID: -6611082233186337051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 418
+        width: 24
+        height: 56
+      alignment: 9
+      pivot: {x: 0.3906835, y: 0.96850747}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f489a74613d3470800000000000000
+      internalID: 8375905189602283320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 420
+        width: 29
+        height: 51
+      alignment: 9
+      pivot: {x: 0.1607366, y: 0.96299595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db4ea047e922a4050800000000000000
+      internalID: 5785474735257871549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 390
+        width: 101
+        height: 89
+      alignment: 9
+      pivot: {x: 0.4350586, y: 0.043074362}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 110e06dac6ecedec0800000000000000
+      internalID: -3540165290906034159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 407
+        width: 98
+        height: 65
+      alignment: 9
+      pivot: {x: 0.76102555, y: 0.21745464}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ac337e52ab690ce0800000000000000
+      internalID: -1438500260854678362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 319
+        width: 101
+        height: 67
+      alignment: 9
+      pivot: {x: 0.6039067, y: 0.08883303}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47a590ce331d90b60800000000000000
+      internalID: 7712925857782258292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 299
+        width: 94
+        height: 80
+      alignment: 9
+      pivot: {x: 0.5558225, y: 0.03266449}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 681847e201317e800800000000000000
+      internalID: 641502432143376774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 249
+        width: 58
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8117bde4f4aebe0800000000000000
+      internalID: -1447257130138527509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 248
+        width: 64
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450f1b0d0246dc7f0800000000000000
+      internalID: -590705884012613548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_9
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 162
+        width: 35
+        height: 37
+      alignment: 9
+      pivot: {x: 0.55622125, y: 0.7836378}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8826d80bfdd77d60800000000000000
+      internalID: 7888017342617495693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 193
+        width: 43
+        height: 32
+      alignment: 9
+      pivot: {x: 0.45423996, y: 0.90994453}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 776ea86ea80873850800000000000000
+      internalID: 6356690733118449271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 143
+        width: 43
+        height: 30
+      alignment: 9
+      pivot: {x: 0.43898612, y: 0.9591375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001893c21fb617f90800000000000000
+      internalID: -6957661265737449216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 91
+        width: 40
+        height: 39
+      alignment: 9
+      pivot: {x: 0.51639783, y: 0.836364}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ddc31a0cfe031010800000000000000
+      internalID: 1158286004827966929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 87
+        width: 39
+        height: 41
+      alignment: 9
+      pivot: {x: 0.48318207, y: 0.7879605}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d063c95599005c7e0800000000000000
+      internalID: -1745988621969902067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioTTYDAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 80
+        width: 43
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4237323, y: 0.8894465}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e54baa9017fb002b0800000000000000
+      internalID: -5620281842743987106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 194f2f575ed1d6d4aae18c490286494d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

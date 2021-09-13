@@ -12,9 +12,9 @@ public class MarioMovement : MonoBehaviour
     public AudioClip marioLand;
 
     //Movement
-    public CharacterController controller;
     [Tooltip("Mario's movement speed when on the ground and force is applied via movement keys")]
     public float moveSpeed;
+    [Tooltip("A negative float. The closer the value to 0, the greater the gravity")]
     public float gravity = -9.8f;
     public float jumpForce;
     [Tooltip("The value that movement input is multiplied by when Mario is airborne. Default: 100")]
@@ -30,12 +30,10 @@ public class MarioMovement : MonoBehaviour
 
     //Checker variables
     Vector3 velocity;
-    public Vector3 movementDirection = Vector3.zero;
     public bool isGrounded;
     public bool isMoving;
     private int frameCount = 1;
     
-
     public bool movingLeft;
     public bool movingRight;
     public bool movingBackward;
@@ -55,7 +53,7 @@ public class MarioMovement : MonoBehaviour
     {
         //frame counter
         frameCount++;
-        if(frameCount == 11)
+        if(frameCount == 51)
         {
             frameCount = 1;
             
@@ -76,14 +74,9 @@ public class MarioMovement : MonoBehaviour
         {
             velocity.y = gravity;
         }
-        
 
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
-        //moveInput.Normalize(); //prevent going diagonal from giving double speed
-
-        //if (moveInputX == 0 && moveInputZ == 0)
-        //movement was here
         
         //Movement on ground
         if (isGrounded)

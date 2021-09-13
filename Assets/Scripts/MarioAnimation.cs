@@ -6,16 +6,14 @@ public class MarioAnimation : MonoBehaviour
 {
     //Animation
     private Animator anim;
-    //public SpriteRenderer marioSR;
-
-
+    
     //Get other variables
     private MarioMovement movementScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject player = GameObject.Find("Player");
+        GameObject player = GameObject.Find("Player"); //does this do anything?
 
         movementScript = player.GetComponent<MarioMovement>();
         
@@ -43,16 +41,7 @@ public class MarioAnimation : MonoBehaviour
         {
             anim.SetBool("isAirborne", true);
         }
-
-        /*
-        if (!marioSR.flipX && movementScript.movingRight)
-        {
-            marioSR.flipX = true;
-        } else if(marioSR.flipX && movementScript.movingLeft) 
-        {
-            marioSR.flipX = false;
-        }
-        */
+        
 
         //left and right animation
         if(movementScript.movingLeft)

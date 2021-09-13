@@ -24,6 +24,10 @@ public class CameraMovement : MonoBehaviour
     private float adjustMax = -0.01f;
     private float adjustMin = 0.01f;
 
+    //Camera Bounding Box Faces
+    public GameObject top, bottom, left, right, front, back;
+    public GameObject interior;
+
 
     void SetTransformX(float n)
     {
@@ -40,25 +44,118 @@ public class CameraMovement : MonoBehaviour
         cameraCube.transform.position = new Vector3(cameraCube.transform.position.x, cameraCube.transform.position.y, n);
     }
 
+
+    /*
+    //Camera box bounding
+    private void OnTriggerStay(Collider boxSide)
+    {
+        if (boxSide.gameObject == top)
+        {
+            SetTransformY(boxSide.transform.position.y - 1);//top'sY -0.01
+        }
+
+        if (boxSide.gameObject == bottom)
+        {
+            SetTransformY(boxSide.transform.position.y + 1);//top'sY -0.01
+        }
+
+        if (boxSide.gameObject == left)
+        {
+            SetTransformY(boxSide.transform.position.x - 1);//top'sY -0.01
+        }
+
+        if (boxSide.gameObject == right)
+        {
+            SetTransformY(boxSide.transform.position.x + 1);//top'sY -0.01
+        }
+
+        if (boxSide.gameObject == front)
+        {
+            SetTransformY(boxSide.transform.position.z + 1);//top'sY -0.01
+        }
+
+        if (boxSide.gameObject == back)
+        {
+            SetTransformY(boxSide.transform.position.z - 1);//top'sY -0.01
+        }
+
+    }
+    //*/
+    /*
+    private void OnTriggerExit(Collider col)
+    {
+        if(cameraCube.transform.position.x < 48)
+        {
+            SetTransformX(48.01f);
+        }
+    }
+
+    private void OnTriggerStay(Collider boxSide)
+    {
+        if (boxSide.gameObject == interior)
+        {
+            transform.position = (transform.position - player.transform.position).normalized + player.transform.position;
+            transform.Translate(XfromPlayer, YfromPlayer, ZfromPlayer);
+        }
+
+        /*
+        if (boxSide.gameObject == top)
+        {
+            SetTransformY(boxSide.transform.position.y - 1);//top'sY -0.01
+        }
+
+        if (boxSide.gameObject == bottom)
+        {
+            SetTransformY(boxSide.transform.position.y + 1);//top'sY -0.01
+        }
+
+        if (boxSide.gameObject == left)
+        {
+            SetTransformX(boxSide.transform.position.x - 1);//top'sY -0.01
+        }
+
+        if (boxSide.gameObject == right)
+        {
+            SetTransformX(boxSide.transform.position.x + 1);//top'sY -0.01
+        }
+
+        if (boxSide.gameObject == front)
+        {
+            SetTransformZ(boxSide.transform.position.z + 1);//top'sY -0.01
+        }
+
+        if (boxSide.gameObject == back)
+        {
+            SetTransformZ(boxSide.transform.position.z - 1);//top'sY -0.01
+        }
+        
+    }
+    */
+
     void Update()
     {
+       
+
         transform.position = (transform.position - player.transform.position).normalized + player.transform.position;
-        transform.Translate(XfromPlayer, YfromPlayer, ZfromPlayer);
+            transform.Translate(XfromPlayer, YfromPlayer, ZfromPlayer);
+        
 
 
+        ///*
         void CameraBounding()
         {
+            
             //X axis
-            if (cameraCube.transform.position.y >= maxX)
+            if (cameraCube.transform.position.x >= maxX)
             {
-                SetTransformY(maxX + adjustMax);
+                SetTransformX(maxX + adjustMax);
             }
 
-            if (cameraCube.transform.position.y <= minX)
+            if (cameraCube.transform.position.x <= minX)
             {
-                SetTransformY(minX + adjustMin);
+                SetTransformX(minX + adjustMin);
             }
-
+            
             //Y axis
             if (cameraCube.transform.position.y >= maxY)
             {
@@ -86,6 +183,12 @@ public class CameraMovement : MonoBehaviour
 
         }
         CameraBounding();
-        
+        //*/
+
+
+
+
+
+
     }
 }

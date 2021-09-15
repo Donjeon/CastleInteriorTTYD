@@ -53,12 +53,13 @@
     <UnityVersion>2020.3.18f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\DustAnimation.cs" />
+    <Compile Include="Assets\Scripts\DustAnimation.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Scripts\MarioMovement.cs" />
     <Compile Include="Assets\Scripts\MarioSound.cs" />
     <Compile Include="Assets\Scripts\MarioAnimation.cs" />
+    <Compile Include="Assets\Scripts\PlatformAttach.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -41,25 +41,41 @@ public class MarioMovement : MonoBehaviour
 
     private bool wasAirborne = false;
 
+    public int frameCountCap = 20;
+
     //Player 
     public GameObject player;
     public Rigidbody playerRB;
 
 
+    
 
-   
 
     void Update()
     {
         //frame counter
         frameCount++;
-        if(frameCount == 51)
+        if(frameCount == frameCountCap)
         {
             frameCount = 1;
             
         }
 
-        //groundCheck
+        /*
+        //Groundcheck with raycast
+        RaycastHit hit;
+        if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, groundDistance, groundMask))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
+        */
+
+        //*
+        //groundCheck with sphere
         if (Physics.CheckSphere(groundPoint.position, groundDistance, groundMask)) //check if the player is touching the ground:
         {
             isGrounded = true;
@@ -68,11 +84,19 @@ public class MarioMovement : MonoBehaviour
         {
             isGrounded = false;
         }
+       //*/
 
+
+        
         //Gravity
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = gravity;
+        }
+        
+        if(!isGrounded)
+        {
+            playerRB.AddRelativeForce(0, gravity, 0, ForceMode.Impulse); //change player mass to adjust jump feel, 1.5 seems good
         }
 
         moveInput.x = Input.GetAxisRaw("Horizontal");
@@ -86,9 +110,9 @@ public class MarioMovement : MonoBehaviour
         }
         else //Movement in air
         {
-            float actualAirborneMoveSpeed = airborneMoveSpeed / 10000000;
+            float actualAirborneMoveSpeed = airborneMoveSpeed / 100;
 
-            if(frameCount == 10) //to limit how quickly this force is applied, its applied only every 10 frames
+            if(frameCount == 2) //to limit how quickly this force is applied, its applied only every 10 frames
             {
                 if (movingBackward)
                 {

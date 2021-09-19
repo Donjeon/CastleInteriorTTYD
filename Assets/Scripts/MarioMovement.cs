@@ -14,8 +14,11 @@ public class MarioMovement : MonoBehaviour
     //Movement
     [Tooltip("Mario's movement speed when on the ground and force is applied via movement keys")]
     public float moveSpeed;
+
     [Tooltip("A negative float. The closer the value to 0, the greater the gravity")]
-    public float gravity = -9.8f;
+    public float gravity = -0.9f;
+    public float spaceReleaseGravity = -2f;
+
     public float jumpForce;
     [Tooltip("The value that movement input is multiplied by when Mario is airborne. Default: 100")]
     public float airborneMoveSpeed = 100f;
@@ -32,7 +35,7 @@ public class MarioMovement : MonoBehaviour
     Vector3 velocity;
     public bool isGrounded;
     public bool isMoving;
-    private int frameCount = 1;
+    
     
     public bool movingLeft;
     public bool movingRight;
@@ -40,8 +43,13 @@ public class MarioMovement : MonoBehaviour
     public bool movingForward;
 
     private bool wasAirborne = false;
+    public bool spaceReleased = false;
 
+    private int frameCount = 1;
     public int frameCountCap = 20;
+
+    private float timer = 0f;
+    public float timerCap = 0.5f; //e.g 5 is 5 seconds
 
     //Player 
     public GameObject player;
@@ -61,18 +69,14 @@ public class MarioMovement : MonoBehaviour
             
         }
 
-        /*
-        //Groundcheck with raycast
-        RaycastHit hit;
-        if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, groundDistance, groundMask))
+        timer += Time.deltaTime;
+        
+        if (timer > timerCap)
         {
-            isGrounded = true;
+            timer = 0;
         }
-        else
-        {
-            isGrounded = false;
-        }
-        */
+
+        
 
         //*
         //groundCheck with sphere
@@ -86,15 +90,17 @@ public class MarioMovement : MonoBehaviour
         }
        //*/
 
-
         
         //Gravity
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = gravity;
         }
-        
-        if(!isGrounded)
+        //velocity.y += gravity * Time.deltaTime; 
+
+
+
+        if (!isGrounded)
         {
             playerRB.AddRelativeForce(0, gravity, 0, ForceMode.Impulse); //change player mass to adjust jump feel, 1.5 seems good
         }
@@ -112,7 +118,7 @@ public class MarioMovement : MonoBehaviour
         {
             float actualAirborneMoveSpeed = airborneMoveSpeed / 100;
 
-            if(frameCount == 2) //to limit how quickly this force is applied, its applied only every 10 frames
+            if(timer == 0) //to limit how quickly this force is applied, its applied only every 10 frames
             {
                 if (movingBackward)
                 {
@@ -175,9 +181,19 @@ public class MarioMovement : MonoBehaviour
             v.y = Mathf.Sqrt(actualJumpForce * -2f * gravity);
             playerRB.velocity = v;
 
+
+
         }
 
-        if(!isGrounded)
+        if (Input.GetButtonUp("Jump") && !isGrounded && !spaceReleased) 
+        {
+            gravity = spaceReleaseGravity; //the amount of gravity to be applied once space is released
+            //Vector3 v = playerRB.velocity * 2f; //final number is the multiplier to the force pushing downward after releasing the spacebar
+            //playerRB.velocity = v;
+            spaceReleased = true;
+        }
+
+        if (!isGrounded)
         {
             wasAirborne = true;
         }
@@ -204,6 +220,8 @@ public class MarioMovement : MonoBehaviour
 
         void marioLandSound()
         {
+            gravity = -0.9f;
+            spaceReleased = false;
             wasAirborne = false;
             gameObject.GetComponent<AudioSource>().PlayOneShot(marioLand);
         }

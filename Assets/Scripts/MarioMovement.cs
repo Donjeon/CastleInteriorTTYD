@@ -181,16 +181,29 @@ public class MarioMovement : MonoBehaviour
             v.y = Mathf.Sqrt(actualJumpForce * -2f * gravity);
             playerRB.velocity = v;
 
-
+            //after jumping, set a boolean value for isJumping
+            //method: if(getButtonUp(Jump) && isJumping > y velocity = 0
+            
 
         }
 
         if (Input.GetButtonUp("Jump") && !isGrounded && !spaceReleased) 
         {
-            gravity = spaceReleaseGravity; //the amount of gravity to be applied once space is released
+
+            //gravity = spaceReleaseGravity; //the amount of gravity to be applied once space is released [UNCOMMENT THIS LINE TO RETURN TO PREVIOUS WORKING SOLUTION]
             //Vector3 v = playerRB.velocity * 2f; //final number is the multiplier to the force pushing downward after releasing the spacebar
             //playerRB.velocity = v;
+            
+            Vector3 v = playerRB.velocity;
+            v.y = 0;
+            playerRB.velocity = v;
+
+
             spaceReleased = true;
+
+
+            //TODO: Make this bound by a check so this can only happen if the cause of moving is a jump, i.e logic from the jumping bit
+
         }
 
         if (!isGrounded)
@@ -274,5 +287,9 @@ public class MarioMovement : MonoBehaviour
             movingForward = false;
         }
         
+
+
+
+
     }
 }

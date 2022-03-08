@@ -26,17 +26,18 @@ public class MarioMovement : MonoBehaviour
     public float moveSpeedCap = 5.01f;
 
     private Vector2 moveInput;
-    public float groundDistance;
+    public float groundDistance; //size of the sphere
     public LayerMask groundMask;
     public Transform groundPoint;
+
+    //Jump Physics
+    private Vector3 jumpVelocity;
 
 
     //Checker variables
     Vector3 velocity;
     public bool isGrounded;
     public bool isMoving;
-    
-    
     public bool movingLeft;
     public bool movingRight;
     public bool movingBackward;
@@ -45,59 +46,53 @@ public class MarioMovement : MonoBehaviour
     private bool wasAirborne = false;
     public bool spaceReleased = false;
 
+
+
+
     private int frameCount = 1;
     public int frameCountCap = 20;
 
     private float timer = 0f;
     public float timerCap = 0.5f; //e.g 5 is 5 seconds
 
+    public bool hasLanded = false;
+    
+
     //Player 
     public GameObject player;
     public Rigidbody playerRB;
 
+    //Dust
+    public GameObject dust;
+    private DustAnimation dustAnimScript;
+
+    private void Start()
+    {
+        dustAnimScript = dust.GetComponent<DustAnimation>();
+    }
+
+    public int bread = 5;
 
     
 
 
-    void Update()
+
+    private void FixedUpdate()
     {
         //frame counter
         frameCount++;
-        if(frameCount == frameCountCap)
+        if (frameCount == frameCountCap)
         {
             frameCount = 1;
-            
+
         }
 
         timer += Time.deltaTime;
-        
+
         if (timer > timerCap)
         {
             timer = 0;
         }
-
-        
-
-        //*
-        //groundCheck with sphere
-        if (Physics.CheckSphere(groundPoint.position, groundDistance, groundMask)) //check if the player is touching the ground:
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
-       //*/
-
-        
-        //Gravity
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = gravity;
-        }
-        //velocity.y += gravity * Time.deltaTime; 
-
 
 
         if (!isGrounded)
@@ -107,7 +102,7 @@ public class MarioMovement : MonoBehaviour
 
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
-        
+
         //Movement on ground
         if (isGrounded)
         {
@@ -118,7 +113,7 @@ public class MarioMovement : MonoBehaviour
         {
             float actualAirborneMoveSpeed = airborneMoveSpeed / 100;
 
-            if(timer == 0) //to limit how quickly this force is applied, its applied only every 10 frames
+            if (timer == 0) //to limit how quickly this force is applied, its applied only every 10 frames
             {
                 if (movingBackward)
                 {
@@ -141,7 +136,57 @@ public class MarioMovement : MonoBehaviour
                 }
             }
         }
+        
+        
 
+        //jumping physics
+        float actualJumpForce = jumpForce * 0.1f;
+        jumpVelocity = playerRB.velocity;
+        jumpVelocity.y = Mathf.Sqrt(actualJumpForce * -2f * gravity);
+         
+    }
+
+    void Update()
+    {
+        //check for jump
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            pickJumpSound();
+            playerRB.velocity = jumpVelocity;
+        }
+
+        if (Input.GetButtonUp("Jump") && !isGrounded && !spaceReleased) //enables releasing space early for mini jump
+        {
+            Vector3 v = playerRB.velocity;
+            v.y = 0;
+            playerRB.velocity = v;
+
+            spaceReleased = true;
+
+            //TODO: Make this bound by a check so this can only happen if the cause of moving is a jump, i.e logic from the jumping bit
+        }
+
+
+        //groundCheck with sphere
+        if (Physics.CheckSphere(groundPoint.position, groundDistance, groundMask)) //check if the player is touching the ground:
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
+        
+
+        
+        //Gravity
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = gravity;
+            //velocity.y += gravity * Time.deltaTime; 
+        }
+
+        
         //Speed limiters
         if (playerRB.velocity.x > moveSpeedCap && playerRB.velocity.x > 0) //if going left past the moveSpeedCap and velocity is greater than 0 (so no conflicts when is negative i.e going right), set the move speed on X to moveSpeedCap -0.01
         {
@@ -171,73 +216,18 @@ public class MarioMovement : MonoBehaviour
             playerRB.velocity = v;
         }
 
-        //jumping
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            pickJumpSound();
-            float actualJumpForce = jumpForce * 0.1f;
-            
-            Vector3 v = playerRB.velocity;
-            v.y = Mathf.Sqrt(actualJumpForce * -2f * gravity);
-            playerRB.velocity = v;
-
-            //after jumping, set a boolean value for isJumping
-            //method: if(getButtonUp(Jump) && isJumping > y velocity = 0
-            
-
-        }
-
-        if (Input.GetButtonUp("Jump") && !isGrounded && !spaceReleased) 
-        {
-
-            //gravity = spaceReleaseGravity; //the amount of gravity to be applied once space is released [UNCOMMENT THIS LINE TO RETURN TO PREVIOUS WORKING SOLUTION]
-            //Vector3 v = playerRB.velocity * 2f; //final number is the multiplier to the force pushing downward after releasing the spacebar
-            //playerRB.velocity = v;
-            
-            Vector3 v = playerRB.velocity;
-            v.y = 0;
-            playerRB.velocity = v;
-
-
-            spaceReleased = true;
-
-
-            //TODO: Make this bound by a check so this can only happen if the cause of moving is a jump, i.e logic from the jumping bit
-
-        }
-
+        
         if (!isGrounded)
         {
             wasAirborne = true;
         }
-
-        void pickJumpSound()
-        {
-            int num = Random.Range(1, 3);
-            if (num == 1)
-            {
-                gameObject.GetComponent<AudioSource>().PlayOneShot(marioJump1);
-            } 
-
-            if (num == 2)
-            {
-                gameObject.GetComponent<AudioSource>().PlayOneShot(marioJump2);
-            }
-
-        }
-
+        
         if (wasAirborne && isGrounded)
         {
             marioLandSound();
         }
 
-        void marioLandSound()
-        {
-            gravity = -0.9f;
-            spaceReleased = false;
-            wasAirborne = false;
-            gameObject.GetComponent<AudioSource>().PlayOneShot(marioLand);
-        }
+        
 
         
         //isMoving checker
@@ -259,8 +249,7 @@ public class MarioMovement : MonoBehaviour
         {
             movingLeft = false;
         }
-
-
+        
         if (moveInputX < 0)
         {
             movingRight = true;
@@ -268,8 +257,7 @@ public class MarioMovement : MonoBehaviour
         {
             movingRight = false;
         }
-
-
+        
         if (moveInputZ < 0)
         {
             movingBackward = true;
@@ -277,8 +265,7 @@ public class MarioMovement : MonoBehaviour
         {
             movingBackward = false;
         }
-
-
+        
         if (moveInputZ > 0)
         {
             movingForward = true;
@@ -287,9 +274,31 @@ public class MarioMovement : MonoBehaviour
             movingForward = false;
         }
         
+    }
 
+    public void pickJumpSound()
+    {
+        int num = Random.Range(1, 1);
+        if (num == 1)
+        {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(marioJump1);
+        }
 
+        if (num == 2)
+        {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(marioJump2);
+        }
 
+        //if you want more jump sounds, increase the range of random and add more if's for each sound
+    }
 
+    public void marioLandSound()
+    {
+        gravity = -0.9f;
+        spaceReleased = false;
+        wasAirborne = false;
+        gameObject.GetComponent<AudioSource>().PlayOneShot(marioLand);
+
+        dustAnimScript.PlayLandAnim();
     }
 }

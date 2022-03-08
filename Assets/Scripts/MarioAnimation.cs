@@ -7,6 +7,7 @@ public class MarioAnimation : MonoBehaviour
     //Animation
     private Animator anim;
     
+    
     //Get other variables
     private MarioMovement movementScript;
 
@@ -18,6 +19,8 @@ public class MarioAnimation : MonoBehaviour
         movementScript = player.GetComponent<MarioMovement>();
         
         anim = GetComponent<Animator>();
+
+        
     }
 
     // Update is called once per frame
